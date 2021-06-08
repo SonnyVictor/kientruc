@@ -1,0 +1,23 @@
+package com.sad.bus.search.bussearchservice;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.client.RestTemplate;
+public class BusSearchService {
+	@Autowired
+	private RestTemplate restTemplate;
+	
+
+	public List<Object> callVexere(){
+		List<Object> ticketVexere = restTemplate.getForObject("http://vexere/vexere-ticket/", List.class);
+			return ticketVexere;
+	}
+	public List<Object> callFuta() {
+		List<Object> ticketFuta = restTemplate.getForObject("http://futa/futa-ticket/", List.class);
+		return null;
+	}
+	
+	
+	
+}
